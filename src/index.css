@@ -1,0 +1,215 @@
+/* Reset de márgenes y paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f9;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.app {
+  max-width: 800px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 40px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Estilos para los filtros */
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.filters select {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 48%;
+}
+
+.filter-label {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Estilo de las tareas */
+.task-card {
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 6px solid transparent;
+}
+
+.task-card.completed {
+  background-color: #e0ffe0;
+  border-left: 6px solid #4caf50;
+  text-decoration: line-through;
+}
+
+.task-card .task-body {
+  flex-grow: 1;
+}
+
+.task-card .task-text {
+  font-size: 16px;
+  color: #333;
+}
+
+.task-card .task-controls {
+  display: flex;
+  align-items: center;
+}
+
+.task-card .task-controls button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.task-card .task-controls i {
+  font-size: 18px;
+  color: #666;
+}
+
+.task-card .task-controls i:hover {
+  color: #333;
+}
+
+.task-card.complete-fx {
+  transform: scale(1.05);
+}
+
+/* Estilos para la lista de tareas */
+#taskList,
+#completedTaskList {
+  list-style: none;
+  padding: 0;
+}
+
+.empty-state {
+  text-align: center;
+  color: #777;
+  font-size: 14px;
+}
+
+.empty-state i {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+button:focus,
+select:focus {
+  outline: none;
+  border-color: #4caf50;
+}
+
+button,
+select {
+  transition: border-color 0.3s ease;
+}
+
+/* Estilos para el formulario de agregar tarea */
+#taskInput {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+#taskInput.focused {
+  border-color: #4caf50;
+}
+
+button#addTask {
+  width: 100%;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button#addTask:hover {
+  background-color: #45a049;
+}
+
+/* Estilos para las estadísticas */
+.stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+.stats div {
+  color: #333;
+}
+
+.stats span {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Animaciones */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+/* Aplicar animaciones a la tarea */
+.task-card {
+  animation: slideIn 0.3s ease;
+}
+
+.task-card.slideOut {
+  animation: slideOut 0.3s ease;
+}
